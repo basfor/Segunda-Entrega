@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="es">
+   <head>
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+      <title>Conflico en la Araucania</title>
+      <!--
+         <!-- COMMON TAGS -->
+      <meta charset="utf-8">
+      <title>conflicto mapuche</title>
+      <!-- Search Engine -->
+      <!-- Schema.org for Google -->
+      <meta itemprop="name" content="conflicto mapuche">
+      <!-- Open Graph general (Facebook, Pinterest & Google+) -->
+      <meta name="og:title" content="conflicto mapuche">
+      <meta name="og:type" content="website">
+      -->
+      <!-- Vamos a buscar el CSS de Bootstrap -->
+      <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/css/bootstrap.min.css" integrity="sha384-MCw98/SFnGE8fJT3GXwEOngsV7Zt27NXFoaoApmYm81iuXoPkFOJwJ8ERdknLPMO" crossorigin="anonymous">
+      <!--Vamos a buscar el CSS de Font Awesome-->
+      <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" integrity="sha384-B4dIYHKNBt8Bc12p+WXckhzcICo0wtJAoU8YZTY5qE0Id1GSseTk6S+L3BlXeVIU" crossorigin="anonymous">
+      <!-- Vamos por nuestro CSS, basado en https://startbootstrap.com/template-overviews/grayscale/ -->
+      <link href="style.css" rel="stylesheet">
+      <!-- Aquí vamos por el estilo y script del mapa-->
+      <link rel="stylesheet" href="https://unpkg.com/leaflet@1.3.4/dist/leaflet.css" integrity="sha512-puBpdR0798OZvTTbP4A8Ix/l+A4dHDD0DGqYW6RQ+9jxkRFclaxxQb/SJAWZfWAkuyeQUytO7+7N4QKrDh+drA==" crossorigin="" />
+      <script src="https://unpkg.com/leaflet@1.3.4/dist/leaflet.js" integrity="sha512-nMMmRyTVoLYqjP9hrbed9S+FzjZHW5gY1TWCHA5ckwXZBadntCNs8kEqAWdrb9O7rxbCaA4lKTIWjDXZxflOcA==" crossorigin=""></script>
+   </head>
+   <body id="page-top">
+      <!-- Navigation -->
+      <nav class="navbar navbar-expand-lg navbar-light fixed-top" id="mainNav">
+         <div class="container">
+            <a class="navbar-brand js-scroll-trigger" href="#page-top"><span class="titular"></span></a>
+            <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false" aria-label="Toggle navigation">
+            Menu
+            <i class="fas fa-bars"></i>
+            </button>
+            <div class="collapse navbar-collapse" id="navbarResponsive">
+               <ul class="navbar-nav ml-auto">
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#about">About</a>
+                  </li>
+                  <li class="nav-item">
+                     <a class="nav-link js-scroll-trigger" href="#dataviz">Visualizaciones</a>
+                  </li>
+               </ul>
+            </div>
+         </div>
+      </nav>
+      <!-- Este encabezado viene de https://startbootstrap.com/snippets/video-header/ -->
+      <header>
+         <div class="overlay"></div>
+         <video playsinline="playsinline" autoplay="autoplay" muted="muted" loop="loop">
+            <!--Favor revisar https://www.w3schools.com/html/html5_video.asp-->
+            <source src="media/Comando_Jungla_complica_al_Gobierno(youtube.com).mp4" type="video/mp4">
+         </video>
+         <div class="container h-100">
+            <div class="d-flex text-center h-100">
+               <div class="my-auto w-100 text-white">
+                  <h1 class="display-3 ">Conflicto mapuche</h1>
+                  <h2>y sus muertos desde el retorno a la democracia</h2>
+                  <p class="pt-3"><a href="#about"><i class="fas fa-3x fa-arrow-alt-circle-down"></i></i></a></p>
+               </div>
+            </div>
+         </div>
+      </header>
+      <!-- About Section -->
+      <section id="about" class="about-section text-center">
+         <div class="container">
+            <div class="row">
+               <div class="col-lg-8 mx-auto">
+                  <h2 class="text-white mb-4">¿Que es?</h2>
+                  <p class="text-white-50"> Desde diversas disciplinas se adelantan análisis, explicaciones y apreciaciones sobre los diversos y complejos componentes que le dan estructura y dinámica al fenómeno. La antropología, la historia, la sociología, la etnografía desde una amplia perspectiva histórica, analizan la ocurrencia de tensiones, demandas y violencias en busca de una superación terminal de la crisis que nunca llega. Obviamente, los aspectos más importantes que han instalado las crisis mayores, son aquellos que tienen que ver con intereses económicos, propiedad de la tierra, legitimidad de la explotación, rentabilidades, avasallamiento cultural, las maniobras truculentas para retener extensos territorios bajo explotación agrícola cuestionada permanentemente y la violencia armada, entre otros.Este largo proceso ha desembocado últimamente en expresiones de violencia aguda. La violencia ha estado presente siempre, desde la primera usurpación de tierras, expresándose de diversas formas. Por ahora, han surgido organizaciones con claros marcos teórico-políticos, étnicos y reivindicativos, que luchan por la recuperación de tierras y, más aún, por recuperar la cultura ancestral, bajo conceptos amplios como el de “pueblo nación mapuche”.
+               </div>
+            </div>
+            <img src="media/pinera.png" class="img-fluid" alt="">
+         </div>
+      </section>
+      <!-- dataviz Section -->
+      <section id="dataviz" class="dataviz-section bg-light">
+      <div class="container">
+      <!-- MAPA -->
+      <div class="row align-items-center no-gutters mb-4 mb-lg-5">
+         <div class="col-xl-8 col-lg-7">
+            <div id="leaflet"></div>
+         </div>
+         <div class="col-xl-4 col-lg-5">
+            <div class="featured-text text-center text-lg-left">
+               <h4>Mapa</h4>
+               <p class="text-black-50 mb-0">Mapa indicativo de los lugares aproximados donde han ocurrido asesinatos a miembros de comunidades mapuches  .</p>
+            </div>
+         </div>
+      </div>
+      <!-- PRIMER GRÁFICO -->
+      <div id="highcharts-9e1b3b9b-5ac9-4254-8a7a-c672fb1b6e85"></div>
+      <script>
+         (function(){ var files = ["https://code.highcharts.com/stock/highstock.js","https://code.highcharts.com/highcharts-more.js","https://code.highcharts.com/highcharts-3d.js","https://code.highcharts.com/modules/data.js","https://code.highcharts.com/modules/exporting.js","https://code.highcharts.com/modules/funnel.js","https://code.highcharts.com/modules/annotations.js","https://code.highcharts.com/modules/solid-gauge.js"],loaded = 0; if (typeof window["HighchartsEditor"] === "undefined") {window.HighchartsEditor = {ondone: [cl],hasWrapped: false,hasLoaded: false};include(files[0]);} else {if (window.HighchartsEditor.hasLoaded) {cl();} else {window.HighchartsEditor.ondone.push(cl);}}function isScriptAlreadyIncluded(src){var scripts = document.getElementsByTagName("script");for (var i = 0; i < scripts.length; i++) {if (scripts[i].hasAttribute("src")) {if ((scripts[i].getAttribute("src") || "").indexOf(src) >= 0 || (scripts[i].getAttribute("src") === "http://code.highcharts.com/highcharts.js" && src === "https://code.highcharts.com/stock/highstock.js")) {return true;}}}return false;}function check() {if (loaded === files.length) {for (var i = 0; i < window.HighchartsEditor.ondone.length; i++) {try {window.HighchartsEditor.ondone[i]();} catch(e) {console.error(e);}}window.HighchartsEditor.hasLoaded = true;}}function include(script) {function next() {++loaded;if (loaded < files.length) {include(files[loaded]);}check();}if (isScriptAlreadyIncluded(script)) {return next();}var sc=document.createElement("script");sc.src = script;sc.type="text/javascript";sc.onload=function() { next(); };document.head.appendChild(sc);}function each(a, fn){if (typeof a.forEach !== "undefined"){a.forEach(fn);}else{for (var i = 0; i < a.length; i++){if (fn) {fn(a[i]);}}}}var inc = {},incl=[]; each(document.querySelectorAll("script"), function(t) {inc[t.src.substr(0, t.src.indexOf("?"))] = 1; }); function cl() {if(typeof window["Highcharts"] !== "undefined"){var options={"title":{"text":"Partido politico de los presidentes que han estado al mando durante las muertes"},"subtitle":{"text":""},"exporting":{},"chart":{"type":"pie","width":null},"legend":{"layout":"vertical","align":"right","verticalAlign":"middle"},"plotOptions":{"series":{"label":{"connectorAllowed":false},"pointStart":2010,"animation":false}},"series":[{"name":"Column 2","turboThreshold":0,"_colorIndex":0,"_symbolIndex":0}],"responsive":{"rules":[{"condition":{"maxWidth":500},"chartOptions":{"legend":{"layout":"horizontal","align":"center","verticalAlign":"bottom"}},"_id":"highcharts-ieq655t-45"}]},"data":{"csv":"\"Column 1\";\"Column 2\"\n\"izquierda\";3\n\"centro izquierda\";\n\"centro\";1\n\"centro derecha\";2\n\"derecha\";","googleSpreadsheetKey":false,"googleSpreadsheetWorksheet":false},"yAxis":[{"title":{}}]};/*
+         
+         */new Highcharts.Chart("highcharts-9e1b3b9b-5ac9-4254-8a7a-c672fb1b6e85", options);}}})();
+      </script>
+      <!-- SEGUNDO GRÁFICO -->
+      <div id="highcharts-b957e91a-f4ed-4d35-a720-6ea555f7ff88"></div>
+      <script>
+         (function(){ var files = ["https://code.highcharts.com/stock/highstock.js","https://code.highcharts.com/highcharts-more.js","https://code.highcharts.com/highcharts-3d.js","https://code.highcharts.com/modules/data.js","https://code.highcharts.com/modules/exporting.js","https://code.highcharts.com/modules/funnel.js","https://code.highcharts.com/modules/annotations.js","https://code.highcharts.com/modules/solid-gauge.js"],loaded = 0; if (typeof window["HighchartsEditor"] === "undefined") {window.HighchartsEditor = {ondone: [cl],hasWrapped: false,hasLoaded: false};include(files[0]);} else {if (window.HighchartsEditor.hasLoaded) {cl();} else {window.HighchartsEditor.ondone.push(cl);}}function isScriptAlreadyIncluded(src){var scripts = document.getElementsByTagName("script");for (var i = 0; i < scripts.length; i++) {if (scripts[i].hasAttribute("src")) {if ((scripts[i].getAttribute("src") || "").indexOf(src) >= 0 || (scripts[i].getAttribute("src") === "http://code.highcharts.com/highcharts.js" && src === "https://code.highcharts.com/stock/highstock.js")) {return true;}}}return false;}function check() {if (loaded === files.length) {for (var i = 0; i < window.HighchartsEditor.ondone.length; i++) {try {window.HighchartsEditor.ondone[i]();} catch(e) {console.error(e);}}window.HighchartsEditor.hasLoaded = true;}}function include(script) {function next() {++loaded;if (loaded < files.length) {include(files[loaded]);}check();}if (isScriptAlreadyIncluded(script)) {return next();}var sc=document.createElement("script");sc.src = script;sc.type="text/javascript";sc.onload=function() { next(); };document.head.appendChild(sc);}function each(a, fn){if (typeof a.forEach !== "undefined"){a.forEach(fn);}else{for (var i = 0; i < a.length; i++){if (fn) {fn(a[i]);}}}}var inc = {},incl=[]; each(document.querySelectorAll("script"), function(t) {inc[t.src.substr(0, t.src.indexOf("?"))] = 1; }); function cl() {if(typeof window["Highcharts"] !== "undefined"){var options={"title":{"text":"Mapuches Asesinados durante el periodo 2001-2018 "},"subtitle":{"text":"fuente: www.laizquierdadiario.cl"},"exporting":{},"yAxis":[{"title":{"text":"Cantidad de Muertos"}}],"legend":{"layout":"vertical","align":"right","verticalAlign":"middle"},"plotOptions":{"series":{"label":{"connectorAllowed":false},"pointStart":2010,"animation":false}},"series":[{"name":"lagos","_colorIndex":0,"_symbolIndex":0},{"name":"bachelet","_colorIndex":1,"_symbolIndex":1},{"name":"piñera","_colorIndex":2,"_symbolIndex":2},{"name":"bachelet","_colorIndex":3,"_symbolIndex":3},{"name":"piñera","_colorIndex":4,"_symbolIndex":4}],"responsive":{"rules":[{"condition":{"maxWidth":500},"chartOptions":{"legend":{"layout":"horizontal","align":"center","verticalAlign":"bottom"}},"_id":"highcharts-ieq655t-45"}]},"data":{"csv":"\"Category\";\"lagos\";\"bachelet\";\"piñera\";\"bachelet\";\"piñera\"\n2001;3;;;;\n2002;2;;;;\n2003;0;;;;\n2004;4;;;;\n2005;2;;;;\n2006;1;;;;\n2007;0;;;;\n2008;1;1;;;\n2009;;1;;;\n2010;;;;;\n2011;;;;;\n2012;;;;;\n2013;;;1;;\n2014;;;1;;\n2015;;;;;\n2016;;;;;\n2017;;;;;\n2018;;;;;1","googleSpreadsheetKey":false,"googleSpreadsheetWorksheet":false}};/*
+         
+         */new Highcharts.Chart("highcharts-b957e91a-f4ed-4d35-a720-6ea555f7ff88", options);}}})();
+      </script>
+      <!-- Footer -->
+      <footer class="bg-black small text-center text-white-50">
+         <div class="container">
+            <p><span class="titular"></span> fue desarrollado por Bastian Flores  para Multimedia II</p>
+            <p>Segundo semestre, 2018 · Diseño Gráfico</p>
+            <p>Universidad de Chile</p>
+            <p><a href="#page-top"><i class="fas fa-arrow-alt-circle-up"></i></a></p>
+         </div>
+      </footer>
+      <!-- Vamos a buscar algo de JavaScript -->
+      <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.3/umd/popper.min.js" integrity="sha384-ZMP7rVo3mIykV+2+9J3UJ46jBk0WLaUAdn689aCwoqbBJiSnjAK/l8WvCWPIPm49" crossorigin="anonymous"></script>
+      <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.3/js/bootstrap.min.js" integrity="sha384-ChfqqxuZUCnJSK3+MXmPNIyE6ZbWh2IMqE241rYiqJxyMiZ6OW/JmZQ5stwEULTy" crossorigin="anonymous"></script>
+      <!--ahora aprovechamos que Bootstrap necesita jQuery, para manipular el DOM-->
+      <script>
+         (function($) {
+             "use strict"; // Start of use strict
+         
+             $(".titular").text("Inicio");
+         })(jQuery); // End of use strict
+      </script>
+      <!--el tema de bootstrap que usamos necesita este script para funcionar-->
+      <script src="js/tema.js"></script>
+      <!--acá comienzan las visualizaciones-->
+      <!--primero el mapa-->
+      <script>
+         var mymap = L.map('leaflet').setView([-37.749406, -71.470823],10);
+         var georeferencias = [
+         {
+             lugar: "Cañicu",
+                         
+                 //Latitud: -37.749406 | Longitud: -71.470823
+             coordenadas: [-37.749406, -71.470823]
+         }, {
+             lugar: "Queuco  ",
+              //Latitud: -37.744949 | Longitud: -71.223952
+             coordenadas: [-37.744949, -71.223952]
+         }, {
+             lugar: "pidima",
+             coordenadas: [ -38.018101,-72.427761]
+         }, {
+             lugar: "expenitencieria",
+             coordenadas: [-33.474569, -70.659228]
+         }, {
+             lugar: "5sur",
+             coordenadas: [-38.043095, -72.398597]
+         }, {
+             lugar: "puerto montt",
+             coordenadas: [-41.474445, -72.984547]
+         }, {
+             lugar: "bollilco grande",
+             coordenadas: [-38.744522, -72.948228]
+         }, {
+             lugar: "vilcun",
+             coordenadas: [-38.667719, -72.224441]
+         }, {
+             lugar: "pudahuel",
+             coordenadas: [-33.442113, -70.764064]
+         }, {
+             lugar: "bollilco grande",
+             coordenadas: [-38.744522, -72.948228]
+         }, {
+             lugar: "Chiguaihue",
+             coordenadas: [-38.025531, -72.554119]
+         }, {
+             lugar: "galvarino",
+             coordenadas: [-38.408859 ,-72.782119]
+         }, {
+             lugar: "pidima",
+             coordenadas: [-38.018101 , -72.42776149999997]
+         }, {
+             lugar: "bollilco grande",
+             coordenadas: [-38.744522, -72.948228]
+         }, {
+             lugar: "bollilco grande",
+             coordenadas: [-38.744522, -72.948228]
+         }                                                                              
+                                                                                
+                                                                                     
+         ];
+            
+         L.tileLayer('https://api.tiles.mapbox.com/v4/{id}/{z}/{x}/{y}.png?access_token=pk.eyJ1IjoibWFwYm94IiwiYSI6ImNpejY4NXVycTA2emYycXBndHRqcmZ3N3gifQ.rJcFIG214AriISLbB6B5aw', {
+             maxZoom: 18,
+             id: 'mapbox.outdoors'
+         }).addTo(mymap);
+         for (var x = 0; x < georeferencias.length; x++) {
+             lat = georeferencias[x].coordenadas[0];
+             lon = georeferencias[x].coordenadas[1];
+             circle = L.circle([lat, lon], {
+                 fillColor: '#E60026',
+                 fillOpacity: 0.7,
+                 weight: 0,
+                 radius: 4500
+             }).addTo(mymap);
+             console.log(lat + "," + lon);
+         }
+      </script>
+      <!--luego voy a buscar una biblioteca que Data Driven Documents (DDD = d3)-->
+      <script src="https://d3js.org/d3.v5.min.js"></script>
+      <!--esto es para un gráfico -->
+      <script>
+         d3.select("#chart-1").attr("width", "100%").attr("height", "400").style("background", "red");
+      </script>
+      <!--esto es para otro gráfico -->
+      <script>
+         d3.select("#chart-2").attr("width", "100%").attr("height", "400").style("background", "blue");
+      </script>
+   </body>
+</html>
